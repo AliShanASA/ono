@@ -11,8 +11,10 @@ class UnitSeeder extends Seeder
   /**
    * Run the database seeds.
    */
+
   public function run(): void
   {
+    $testing;
     for ($i = 1; $i < 7; $i++) {
       Unit::create([
         'name' => 'Unit' . $i,
