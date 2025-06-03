@@ -14,8 +14,6 @@ class UnitSeeder extends Seeder
 
   public function run(): void
   {
-    $testing;
-      $testing2;
     for ($i = 1; $i < 7; $i++) {
       Unit::create([
         'name' => 'Unit' . $i,

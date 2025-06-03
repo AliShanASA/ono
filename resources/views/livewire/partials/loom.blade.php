@@ -1,7 +1,7 @@
 <div class="flex h-full">
-  <div class="w-[15%] border-r border-indigo-400 shadow-md">
-    <p class="bg-blue-600 text-white mb-2 text-sm font-semibold text-center">Units</p>
-    <ul x-data="{ open: @entangle('activeUnit').defer }" class="space-y-2 text-sm">
+  <div class="w-[15%] border-r border-l border-indigo-400 shadow-md">
+    <p class="bg-indigo-600 text-white mb-2 text-sm font-semibold text-center py-[10px]">Units</p>
+    <ul x-data="{ open: @entangle('activeUnit').defer }" class="space-y-2 text-sm px-1">
       @foreach ($unitData as $unit)
       <li class="w-full">
         <div 
@@ -60,67 +60,64 @@
         <p>Testing</p>
       </div>
     </div>
-    <div class="flex flex-col p-5">
-      <div class="flex flex-row gap-2">
-      <p>Testing</p>
-      <p>{{$displayLoom}}</p>
-    </div>
-    <div class="border border-black p-3 rounded-md bg-white shadow-lg">
-      <div class="flex flex-col">
-        <div class="flex flex-row justify-between">
-        <p>testing</p>
-        <p>testing</p>
-        <p>testing</p>
+    <div class="p-2 flex flex-row gap-1">
+      <div class="w-[50%] ">
+        <div class="p-2 bg-indigo-600 rounded-md text-white text-center w-[28%]">
+        Stock Details
+        </div>
+        <div class="mt-2 w-full flex flex-col gap-1 px-10 bg-white rounded-md shadow-lg py-2">
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Stock Code</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Quality</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Quantity</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Product Produced</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Remaining</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Worker Name</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Date</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Time</p>
+            <p>1</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="font-bold">Status</p>
+            <p>1</p>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-row justify-between">
-        <p>testing</p>
-        <p>testing</p>
-        <p>testing</p>
-      </div>
-      <div class="flex flex-row justify-between">
-        <p>testing</p>
-      </div>
-      <div>
-        <table class="min-w-full border-collapse border border-gray-300">
-          <tbody>
-            <tr class="bg-gray-100">
-              <td class="sticky left-0 bg-gray-100 font-semibold text-left px-4 py-3 border border-gray-300 w-36">Date</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-02</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-03</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-04</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-05</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-06</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-07</td>
-              <td class="text-center border border-gray-300 px-4 py-3">2023-10-08</td>
-              <td class="sticky right-0 bg-gray-100 font-semibold text-center px-4 py-3 border border-gray-300 w-20">Total</td>
-            </tr>
-            <tr>
-              <td class="sticky left-0 bg-white font-semibold text-left px-4 py-3 border border-gray-300 w-36">String 1</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Alpha</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Beta</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Gamma</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Delta</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Epsilon</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Zeta</td>
-              <td class="text-center border border-gray-300 px-4 py-3">Eta</td>
-              <td class="sticky right-0 bg-white border border-gray-300 w-20"></td>
-            </tr>
-            <tr>
-              <td class="sticky left-0 bg-white font-semibold text-left px-4 py-3 border border-gray-300 w-36">Integer</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">5</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">3</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">7</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">2</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">8</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">6</td>
-              <td class="text-center border border-gray-300 px-4 py-3 font-mono font-bold text-indigo-700">4</td>
-              <td class="sticky right-0 bg-gray-100 font-semibold text-indigo-900 text-center px-4 py-3 border border-gray-300 w-20">35</td>
-            </tr>
-          </tbody>
+      <div class="w-[50%]">
+        <div class="p-2 bg-indigo-600 rounded-md text-white text-center w-[28%]">
+        Last 7 Days Data
+        </div>
+        <table class="w-full mt-2">
+          <tr>
+            <th>Date</th>
+            <th>Quality</th>
+            <th>Product</th>
+            <th>Actions</th>
+          </tr>
         </table>
       </div>
     </div>
-    </div>
-    </div>
+
   </div>
 </div>
