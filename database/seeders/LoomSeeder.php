@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LoomModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Unit;
@@ -17,7 +18,7 @@ class LoomSeeder extends Seeder
     $units = Unit::all();
     foreach ($units as $unit) {
       for ($i = 0; $i < 8; $i++) {
-        Loom::create([
+        LoomModel::create([
           'unit_id' => $unit->id,
         ]);
       }
