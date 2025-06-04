@@ -29,7 +29,7 @@
 
   <!-- Main Content -->
   <div class="w-[82%] bg-gray-100 flex flex-col shadow-2xl">
-    <div class="h-10 border-b border-gray-500 flex flex-row justify-between px-1 py-1">
+    <div class="h-10 border-b border-indigo-500 flex flex-row justify-between px-1 py-1">
       <p>Testing</p>
       <p>Testing</p>
     </div>
