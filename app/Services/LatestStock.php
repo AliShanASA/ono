@@ -6,7 +6,10 @@ class LatestStock
 {
   public function getLatestStock($unitId, $loomId)
   {
-    $data = Stock::where('unit_id', $unitId)->where('loom_id', $loomId)->latest('date');
+    $data = Stock::where('unit_id', $unitId)
+             ->where('loom_id', $loomId)
+             ->orderByDesc('id')
+             ->first();
     return $data;
   }
 }
