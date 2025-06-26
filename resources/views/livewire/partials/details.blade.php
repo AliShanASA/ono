@@ -15,8 +15,6 @@
                 class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition-colors duration-200">
           Submit
         </button>
-        <p class="{{ $response == '200' ? 'block' : 'hidden' }} text-green-600 text-sm">✔️ Success</p>
-        <p class="{{ $response == '201' ? 'block' : 'hidden' }} text-red-600 text-sm">❌ Fail</p>
       </form>
     </div>
 
@@ -32,8 +30,6 @@
                 class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md transition-colors duration-200">
           Submit
         </button>
-        <p class="{{ $response == '202' ? 'block' : 'hidden' }} text-green-600 text-sm">✔️ Success</p>
-        <p class="{{ $response == '203' ? 'block' : 'hidden' }} text-red-600 text-sm">❌ Fail</p>
       </form>
     </div>
 

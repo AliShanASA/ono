@@ -24,4 +24,13 @@ class Stock extends Model
   {
     return $this->hasMany(Production::class);
   }
+  public function deleteStock($id){
+    try{
+      $stock = Stock::find($id);
+    $stock->delete();
+    $this->dispatch('toast' , message:'Stock has been deleted successfully', type:'success');
+    } catch (\Exception $e) { 
+      $this->dispatch('toast', message:'Error occoured while deleting the stock', type:'error');
+    }
+  }
 }

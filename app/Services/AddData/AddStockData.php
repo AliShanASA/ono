@@ -1,11 +1,12 @@
 <?php 
-namespace  App\Services\Add_Data;
+namespace  App\Services\AddData;
 
 use App\Models\Stock;
 
 class AddStockData{
   public function addData($loomId, $unitId, $quantity, $quality, $width, $date, $time, $worker){
-    $response = Stock::create([
+    try{
+      Stock::create([
       'loom_id' => $loomId,
       'unit_id'=> $unitId,
       'inital_quantity' => $quantity, 
@@ -17,10 +18,10 @@ class AddStockData{
       'date' => $date, 
       'time' => $time
     ]);
-    if($response){
-      return '200';
-    } else {
-      return '201';
-    }
+    return true;
+  } catch(\Exception $e){
+    return false;
+  }
+
   }
 }

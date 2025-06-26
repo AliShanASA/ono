@@ -8,9 +8,20 @@
         <title>{{ $title ?? 'Page Title' }}</title>
        
     </head>
-    <body>
-        {{ $slot }}
+    <body class="h-screen flex">
+      @livewire('ui.toast')
+      @if(Auth::check())
+        @livewire('common.sidebar')
+      <div class="w-[82%] bg-gray-100 flex flex-col shadow-2xl">
+        @livewire('common.header')
+        <div class="flex-grow overflow-y-auto text-black h-screen">
+            {{ $slot }}
+        </div>
+      </div>
+      @else
+      <div class="h-screen w-full"> {{ $slot }}</div>
+      @endif
         @livewireStyles
-        
+
     </body>
 </html>

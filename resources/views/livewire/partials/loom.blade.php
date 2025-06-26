@@ -110,7 +110,7 @@
             <p class="text-sm"></p>
           </div>
           <div class="flex items-center justify-center">
-          <div class="bg-red-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[100%] hover:bg-red-800">
+          <div wire:click='deleteStock({{ $stockData?$stockData->id:'' }})' class="bg-red-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[100%] hover:bg-red-800">
             Delete
           </div>
         </div>
@@ -121,11 +121,9 @@
 
         <div class="flex flex-row items-center justify-end mt-2 gap-2">
           <div class="bg-gray-100 justify-center rounded-sm shadow-lg cursor-pointer text-black border border-indigo-500 p-1 flex text-center w-[30%] hover:bg-gray-300">Update</div>
-          <div wire:click='openModal' class="bg-indigo-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[30%] hover:bg-indigo-800">Add New</div>
+          <div wire:click='openModal' class="bg-indigo-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[30%] hover:bg-indigo-800">Add New Stock</div>
         </div>
         </div>
-        
-      
       <div class="w-[60%]">
         <div class="p-1 bg-indigo-600 rounded-md text-white text-sm text-center w-[28%]">
         Last 7 Days Data
@@ -158,7 +156,10 @@
             <p>Total:</p>
             <p>450</p>
           </div>
-          <div class="bg-indigo-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[30%] hover:bg-indigo-800">Add New</div>
+          <button 
+          {{ $currentStockId?'':'disabled' }}
+          wire:click='openProductModal' 
+          class="bg-indigo-600 justify-center rounded-sm shadow-lg cursor-pointer text-white p-1 flex text-center w-[30%] hover:bg-indigo-800 disabled:bg-gray-400 disabled:cursor-not-allowed"">Add New Product</button>
         </div>
       </div>
     </div>
@@ -166,7 +167,6 @@
   <div class="{{$isLoomSelected?'hidden':'flex'}} items-center justify-center">Please select loom to view data.</div>
 </div>
 <div class="fixed inset-0 z-50  items-center justify-center bg-black/50 {{$isModal?'flex':'hidden'}}">
-<!-- Modal container -->
 <div class="relative p-4 w-full max-w-xl">
  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
    <!-- Modal header -->
@@ -236,7 +236,7 @@
 
                 <p class="{{ $response?'flex':'hidden' }} text-black">{{ $response }}</p>
             </form>
-        </div>
-    </div>
+        </div></div>
 </div> 
+@livewire('modals.add-product-data-modal')
 </div>

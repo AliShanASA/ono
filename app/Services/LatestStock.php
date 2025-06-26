@@ -8,7 +8,7 @@ class LatestStock
   {
     $data = Stock::where('unit_id', $unitId)
              ->where('loom_id', $loomId)
-             ->orderByDesc('id')
+             ->latest()
              ->first();
     return $data;
   }

@@ -18,14 +18,16 @@ class Details extends Component
     $this->response = $addDetailsService->addQuality($this->quality);
     if ($this->response === '200') {
       $this->quality = '';
+      $this->dispatch('toast', message:'Quality added successfully', type: 'success');
     }
 
   }
   public function addWorkerName(AddDetailsService $addDetailsService)
   {
     $this->response = $addDetailsService->addWorkerName($this->worker_name);
-    if ($this->response === '203') {
+    if ($this->response === '202') {
       $this->worker_name = '';
+      $this->dispatch('toast', message:'Worker name added successfully', type: 'success');
     }
   }
 }
