@@ -130,25 +130,31 @@
         </div>
         <div class="bg-white rounded-md shadow-lg overflow-x-auto max-h-120 mt-2 border border-indigo-500">
           <table class="w-full table-auto border-collapse mb-1 font-mono">
-            <thead class="bg-white">
-              <tr>
-                <th class="px-2 py-2 text-left">Date</th>
-                <th class="px-2 py-2 text-left">Quality</th>
-                <th class="px-2 py-2 text-left">Product</th>
-                <th class="px-2 py-2 text-left">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="text-sm">
-              <tr class="hover:bg-gray-50 text-left">
-                <td class="px-2 py-2 border-t">12-3-2025</td>
-                <td class="px-2 py-2 border-t overflow-x-auto">Testing</td>
-                <td class="px-2 py-2 border-t">12</td>
-                <td class="px-2 py-2 border-t space-x-2">
-                  <i class="bi bi-pencil-square text-blue-600 cursor-pointer"></i>
-                  <i class="bi bi-trash3 text-red-600 cursor-pointer"></i>
-                </td>
-              </tr>
-            </tbody>
+              @if(!$productData)
+              <div class="flex items-center justify-center p-1">No data found against current stock.</div>
+              @else
+              <thead class="bg-white">
+                <tr>
+                  <th class="px-2 py-2 text-left">Date</th>
+                  <th class="px-2 py-2 text-left">Quality</th>
+                  <th class="px-2 py-2 text-left">Product</th>
+                  <th class="px-2 py-2 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                @foreach($productData as $product)
+                <tr class="hover:bg-gray-50 text-left">
+                  <td class="px-2 py-2 border-t">{{ $product->date }}</td>
+                  <td class="px-2 py-2 border-t overflow-x-auto">{{ $product->quality }}</td>
+                  <td class="px-2 py-2 border-t">{{ $product->product }}</td>
+                  <td class="px-2 py-2 border-t space-x-2">
+                    <i class="bi bi-pencil-square text-blue-600 cursor-pointer"></i>
+                    <i wire:click='openDeleteConfirmationModal({{ $product->id }})' class="bi bi-trash3 text-red-600 cursor-pointer"></i>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+              @endif
           </table>
         </div>
         <div class="flex flex-row items-center justify-end mt-2 gap-2">
@@ -239,4 +245,35 @@
         </div></div>
 </div> 
 @livewire('modals.add-product-data-modal')
+<div class="fixed inset-0 z-50 items-center justify-center bg-black/50 {{ $openDeleteConfirmation ? 'flex' : 'hidden' }}">
+    <!-- Modal container -->
+    <div class="relative p-4 w-full max-w-md">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-600 rounded-t">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Confirm Deletion
+                </h3>
+            </div>
+
+            <!-- Modal body -->
+            <div class="p-4 text-gray-700 dark:text-gray-300">
+                Are you sure you want to delete this item? This action cannot be undone.
+            </div>
+
+            <!-- Modal footer -->
+            <div class="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-gray-600">
+                <button wire:click="closeDeleteConfirmation"
+                        class="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded">
+                    Cancel
+                </button>
+                <button wire:click="deleteProduct"
+                        class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>

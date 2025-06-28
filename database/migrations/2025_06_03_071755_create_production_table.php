@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->unsignedBigInteger('loom_id');
       $table->unsignedBigInteger('unit_id');
       $table->decimal('product');
+      $table->string('quality')->nullable();
       $table->date('date');
       $table->timestamps();
 
