@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('loom', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('unit_id');
+      $table->unsignedBigInteger('unit_id')->nullable();
       $table->timestamps();
       $table->foreign('unit_id')->references('id')->on('unit')->onDelete('cascade');
     });

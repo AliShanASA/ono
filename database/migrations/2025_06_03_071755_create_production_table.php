@@ -12,12 +12,12 @@ return new class extends Migration {
   {
     Schema::create('production', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('stock_id');
-      $table->unsignedBigInteger('loom_id');
-      $table->unsignedBigInteger('unit_id');
-      $table->decimal('product');
+      $table->unsignedBigInteger('stock_id')->nullable();
+      $table->unsignedBigInteger('loom_id')->nullable();
+      $table->unsignedBigInteger('unit_id')->nullable();
+      $table->decimal('product', 8, 1)->nullable();
       $table->string('quality')->nullable();
-      $table->date('date');
+      $table->date('date')->nullable();
       $table->timestamps();
 
       $table->foreign('stock_id')->references('id')->on('stock')->onDelete('cascade');

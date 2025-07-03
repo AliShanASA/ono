@@ -10,12 +10,11 @@ class DatabaseSeeder extends Seeder
    */
   public function run(): void
   {
-
+    $this->call(RoleAndPermission::class);
     $this->call([
       UnitSeeder::class,
       LoomSeeder::class,
       UserSeeder::class,
     ]);
-
   }
 }

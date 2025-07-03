@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('qualities', function (Blueprint $table) {
       $table->id();
-      $table->string('quality');
+      $table->string('quality')->nullable();
       $table->timestamps();
     });
   }

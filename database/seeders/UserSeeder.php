@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class UserSeeder extends Seeder
 {
 
-    public function run(): void
-    {
-        User::create(
-          [
-            'username' => 'admin',
-            'password' => Hash::make('admin123'),
-          ]
-        );
-    }
+  public function run(): void
+  {
+    $adminUser = User::create(
+      [
+        'username' => 'superadmin',
+        'password' => Hash::make('admin123'),
+      ]
+    );
+    $adminUser->assignRole('superadmin');
+  }
 }

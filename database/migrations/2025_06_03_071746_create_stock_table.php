@@ -12,15 +12,16 @@ return new class extends Migration {
   {
     Schema::create('stock', function (Blueprint $table) {
       $table->id();
-      $table->unsignedBigInteger('loom_id');
-      $table->unsignedBigInteger('unit_id');
-      $table->decimal('inital_quantity');
-      $table->decimal('remaining_quantity')->default(0);
-      $table->decimal('width');
-      $table->string('quality');
-      $table->string('worker_name');
-      $table->date('date');
-      $table->time('time');
+      $table->unsignedBigInteger('loom_id')->nullable();
+      $table->unsignedBigInteger('unit_id')->nullable();
+      $table->decimal('inital_quantity', 8, 1)->nullable();
+      $table->decimal('remaining_quantity', 8, 1)->default(0)->nullable();
+      $table->decimal('product_produced', 8, 1)->nullable();
+      $table->decimal('width', 8, 1)->nullable();
+      $table->string('quality')->nullable();
+      $table->string('worker_name')->nullable();
+      $table->date('date')->nullable();
+      $table->time('time')->nullable();
       $table->timestamps();
 
       $table->foreign('loom_id')->references('id')->on('loom')->onDelete('cascade');
